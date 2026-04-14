@@ -22,27 +22,8 @@
 
 #include "othello/GameRegistry.h"
 #include "othello/Game.h"
-#include "othello/player/MTDf3Player.h"
-#include "othello/OthelloBoard.h"
-#include "othello/OthelloTree.h"
-#include "othello/eval/SEvaluationStrategy.h"
-#include "othello//eval/GEvaluationStrategy.h"
-#include "othello/SimpleOthelloTreeBuilder.h"
-#include "builder/IterativeDeepening.h"
-#include "builder/MTDf.h"
-#include "othello/player/GPlayer.h"
-#include "othello/player/HumanPlayer.h"
-#include "othello/player/JSPlayer.h"
-#include "othello/player/SPlayer.h"
-#include "othello/player/S2Player.h"
-#include "othello/player/MTDfPlayer.h"
-#include "othello/player/MTDf3Player.h"
 #include "othello/player/S3Player.h"
-#include "othello/OthelloAlphaBetaTreeBuilder.h"
 #include "util/RandomEngineHelper.h"
-
-
-#include "test/TestTreeBuilder.h"
 
 using namespace std;
 using namespace othello;
