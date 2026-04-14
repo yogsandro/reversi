@@ -19,8 +19,8 @@
 
 **Run demo**
 - From build directory:  
-  - On Linux: `./othello-app` (or `./app/othello-app` depending on layout)  
-- The demo runs in the terminal with a simple text UI for playing/testing the library.
+  - On Linux: `./othello-console-app` 
+- The demo runs in the terminal with the computer playing with himself using 2 different algorithms.
 
 **What to commit**
 - Source code, headers, CMake files, docs.  
