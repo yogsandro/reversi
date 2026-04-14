@@ -8,17 +8,6 @@
 
 #include <iostream>
 #include <chrono>
-#include <map>
-#include <random>
-#include <concepts>
-#include <sstream>
-#include <cassert>
-#include <chrono>
-#include <cmath>
-#include <list>
-#include <array>
-#include <deque>
-
 
 #include "othello/GameRegistry.h"
 #include "othello/Game.h"
