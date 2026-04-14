@@ -1,0 +1,2 @@
+#define reversi_VERSION_MAJOR @reversi_VERSION_MAJOR@
+#define reversi_VERSION_MINOR @reversi_VERSION_MINOR@
