@@ -8,11 +8,12 @@
 #include "othello/Game.h"
 
 namespace othello {
-Game::Game(GameRegistry& gameRegistry) : m_gameRegistry(gameRegistry) {
+Game::Game(GameRegistry& gameRegistry) : m_gameRegistry(gameRegistry), m_started(false) {
 }
 
 void Game::init() {
 	m_gameRegistry.init();
+	m_started = true;
 }
 
 void Game::end() {
@@ -26,6 +27,10 @@ void Game::play(bool verbose) {
 	if (verbose) {
 		std::cout << m_gameRegistry.board() << std::endl;
 	}
+}
+
+bool Game::hasStarted() {
+	return m_gameRegistry.nMoves() > 0;
 }
 
 bool Game::hasEnded() {

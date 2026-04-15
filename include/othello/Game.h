@@ -19,8 +19,11 @@ public:
 	void end();
 	void play(bool verbose = false);
 	bool hasEnded();
+	bool hasStarted();
+
 private:
 	GameRegistry& m_gameRegistry;
+	bool m_started;
 };
 
 } /* namespace othello */

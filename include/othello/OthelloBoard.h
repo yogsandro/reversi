@@ -158,12 +158,17 @@ struct Board {
 	unsigned long low;
 	unsigned long high;
 
-	Board(UL l, UL h) : low (l), high(h) {};
+	Board(UL l = 0, UL h = 0) : low (l), high(h) {};
 	~Board() = default;
 	Board(const Board &other) = default;
 	Board(Board &&other) = default;
 	Board& operator=(const Board &other) = default;
 	Board& operator=(Board &&other) = default;
+
+	void reset(UL l, UL h) {
+		low = l;
+		high = h;
+	}
 
 	/**
 	 * Iterate on valid board positions
@@ -1369,16 +1374,20 @@ struct Board {
  * The Othello board
  */
 class OthelloBoard final : public std::enable_shared_from_this<OthelloBoard> {
-
-
 public:
-
-	OthelloBoard() : m_black(1L << 45, 1L << 14), m_white(1L << 44, 1L << 15) {};
+	OthelloBoard() : m_black(), m_white() {
+		reset();
+	};
 	~OthelloBoard() = default;
 	OthelloBoard(const OthelloBoard &other) = default;
 	OthelloBoard(OthelloBoard &&other) = default;
 	OthelloBoard& operator=(const OthelloBoard &other) = default;
 	OthelloBoard& operator=(OthelloBoard &&other) = default;
+
+	void reset() {
+		m_black.reset(1L << 45, 1L << 14);
+		m_white.reset(1L << 44, 1L << 15);
+	}
 
 	constexpr US count(bool black) {
 		return board(black).count_();

@@ -20,8 +20,8 @@ namespace othello {
 
 GameRegistry::GameRegistry() :
 	m_turn(0),
-	m_blacksTurn(true),
-	m_play(0) {
+	m_blackToPlay(true),
+	m_nMoves(0) {
 	m_moves.reserve(100);
 }
 
@@ -35,29 +35,31 @@ void GameRegistry::addPlayer(Player& player) {
 }
 
 void GameRegistry::turnOver() {
-	m_blacksTurn = !m_blacksTurn;
-	m_play++;
-	m_turn = m_play / 2;
+	m_blackToPlay = !m_blackToPlay;
+	m_nMoves++;
+	m_turn = m_nMoves / 2;
 }
 
 Player& GameRegistry::player() const {
-	return *m_players[!m_blacksTurn];
+	return *m_players[!m_blackToPlay];
 }
 
 bool GameRegistry::havePlayersValidMove() {
-	return m_board.hasMove(m_blacksTurn) || m_board.hasMove(!m_blacksTurn);
+	return m_board.hasMove(m_blackToPlay) || m_board.hasMove(!m_blackToPlay);
 }
 
 void GameRegistry::init(bool verbose) {
 	m_turn = 1;
-	m_blacksTurn = true;
-	m_play = 0;
+	m_blackToPlay = true;
+	m_nMoves = 0;
 
 	m_map[m_players[0]] = true;
 	m_map[m_players[1]] = false;
 
 	m_players[0]->init();
 	m_players[1]->init();
+
+	m_board.reset();
 
 	if (verbose) {
 		std::cout << "Les joueurs sont:\n";
@@ -140,6 +142,9 @@ short GameRegistry::end(bool verbose) {
 	}
 	m_players[0]->end();
 	m_players[1]->end();
+
+	m_players.clear();
+	m_map.clear();
 
 	return winner;
 

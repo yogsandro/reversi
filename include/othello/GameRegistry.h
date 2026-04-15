@@ -68,6 +68,13 @@ public:
 
 	bool havePlayersValidMove();
 
+	bool blackToPlay() const {
+		return m_blackToPlay;
+	}
+
+	short nMoves() const {
+		return m_nMoves;
+	}
 
 private:
 	OthelloBoard m_board;
@@ -75,8 +82,8 @@ private:
 	std::map<Player*, bool> m_map;
 	std::vector<UL> m_moves;
 	short m_turn;
-	bool m_blacksTurn;
-	short m_play;
+	bool m_blackToPlay;
+	short m_nMoves;
 };
 
 } /* namespace othello */

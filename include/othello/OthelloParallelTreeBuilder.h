@@ -5,8 +5,7 @@
  *      Author: sandro
  */
 
-#ifndef OTHELLOPARALLELTREEBUILDER_H_
-#define OTHELLOPARALLELTREEBUILDER_H_
+#pragma once
 
 #include <atomic>
 #include "OthelloTree.h"
@@ -208,4 +207,4 @@ private:
 
 } /* namespace othello */
 
-#endif /* OTHELLOPARALLELTREEBUILDER_H_ */
+
